@@ -46,11 +46,15 @@ public class MenuDriven extends JFrame implements ActionListener {
             Register obj = new Register();
             obj.setVisible(true);
             setVisible(false);
-        } else if (e.getSource().equals(javaButton2)) {
+        } 
+        
+        if (e.getSource().equals(javaButton2)) {
             LoginPage obj1 = new LoginPage();
             obj1.setVisible(true);
             setVisible(false);
-        } else if (e.getSource().equals(javaButton3)) {
+        } 
+        
+        if (e.getSource().equals(javaButton3)) {
             SimpleInterest obj2 = new SimpleInterest();
             obj2.setVisible(true);
             setVisible(false);
