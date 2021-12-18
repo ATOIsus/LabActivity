@@ -1,0 +1,59 @@
+
+
+CREATE DATABASE bhatBhateni;
+USE bhatBhateni;
+SHOW TABLES;
+
+
+CREATE TABLE Customer(
+	cusID INT AUTO_INCREMENT,
+    cFirstName VARCHAR(20) NOT NULL,
+    cLasttName VARCHAR(20) NOT NULL,
+    cNumber VARCHAR(10) NOT NULL,
+    cAddress VARCHAR(50) NOT NULL,
+	cJoinDate DATE,
+
+    CONSTRAINT pk_Cus PRIMARY KEY(cusID)
+);
+
+
+
+CREATE TABLE Bill(
+	bID INT AUTO_INCREMENT,
+    Total INT NOT NULL,
+    purchaseDate DATE,
+    cusID INT,
+    
+    CONSTRAINT pk_Bill PRIMARY KEY(bID),
+    CONSTRAINT fk_Bill FOREIGN KEY(cusID) REFERENCES Customer(cusID)
+);
+
+
+
+CREATE TABLE Staff(
+	sID INT AUTO_INCREMENT,
+    sName VARCHAR(40) NOT NULL,
+    sUsername VARCHAR(20) NOT NULL,
+    sPassword VARCHAR(40) NOT NULL,
+	
+	CONSTRAINT pk_Staff PRIMARY KEY(sID)
+);
+
+
+
+
+CREATE TABLE BillInfo(
+    cID INT,
+    bID INT,
+    sID INT,
+    Quantity INT NOT NULL,
+    Price INT NOT NULL,
+    
+    CONSTRAINT pk_BillInfo PRIMARY KEY(bID, cID),
+	CONSTRAINT fk_BillInfo1 FOREIGN KEY(bID) REFERENCES Bill(bID),
+	CONSTRAINT fk_BillInfo2 FOREIGN KEY(cID) REFERENCES Customer(cusID),
+	CONSTRAINT fk_BillInfo3 FOREIGN KEY(sID) REFERENCES Staff(sID)
+);
+
+
+
