@@ -6,12 +6,12 @@ SHOW TABLES;
 
 
 CREATE TABLE Customer(
-	cusID INT AUTO_INCREMENT,
+    cusID INT AUTO_INCREMENT,
     cFirstName VARCHAR(20) NOT NULL,
     cLasttName VARCHAR(20) NOT NULL,
     cNumber VARCHAR(10) NOT NULL,
     cAddress VARCHAR(50) NOT NULL,
-	cJoinDate DATE,
+    cJoinDate DATE,
 
     CONSTRAINT pk_Cus PRIMARY KEY(cusID)
 );
@@ -19,7 +19,7 @@ CREATE TABLE Customer(
 
 
 CREATE TABLE Bill(
-	bID INT AUTO_INCREMENT,
+    bID INT AUTO_INCREMENT,
     Total INT NOT NULL,
     purchaseDate DATE,
     cusID INT,
@@ -31,12 +31,12 @@ CREATE TABLE Bill(
 
 
 CREATE TABLE Staff(
-	sID INT AUTO_INCREMENT,
+    sID INT AUTO_INCREMENT,
     sName VARCHAR(40) NOT NULL,
     sUsername VARCHAR(20) NOT NULL,
     sPassword VARCHAR(40) NOT NULL,
 	
-	CONSTRAINT pk_Staff PRIMARY KEY(sID)
+    CONSTRAINT pk_Staff PRIMARY KEY(sID)
 );
 
 
@@ -50,9 +50,19 @@ CREATE TABLE BillInfo(
     Price INT NOT NULL,
     
     CONSTRAINT pk_BillInfo PRIMARY KEY(bID, cID),
-	CONSTRAINT fk_BillInfo1 FOREIGN KEY(bID) REFERENCES Bill(bID),
-	CONSTRAINT fk_BillInfo2 FOREIGN KEY(cID) REFERENCES Customer(cusID),
-	CONSTRAINT fk_BillInfo3 FOREIGN KEY(sID) REFERENCES Staff(sID)
+    CONSTRAINT fk_BillInfo1 FOREIGN KEY(bID) REFERENCES Bill(bID),
+    CONSTRAINT fk_BillInfo2 FOREIGN KEY(cID) REFERENCES Customer(cusID),
+    CONSTRAINT fk_BillInfo3 FOREIGN KEY(sID) REFERENCES Staff(sID)
+);
+
+
+
+
+CREATE TABLE Item(
+    itemID INT,
+    itemName VARCHAR(30),
+
+    CONSTRAINT pk_Item PRIMARY KEY(itemID)
 );
 
 
