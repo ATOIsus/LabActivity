@@ -11,7 +11,9 @@ CREATE TABLE Customer(
     cLasttName VARCHAR(20) NOT NULL,
     cNumber VARCHAR(10) NOT NULL,
     cAddress VARCHAR(50) NOT NULL,
-    cJoinDate DATE,
+    cusernName INT,
+    cuser_pasword VARCHAR(30),
+    cgender VARCHAR(10)
 
     CONSTRAINT pk_Cus PRIMARY KEY(cusID)
 );
